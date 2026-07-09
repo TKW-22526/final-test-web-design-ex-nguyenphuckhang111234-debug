@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quản lý sinh viên</title>
+
+<title>Quản lý điểm</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -24,34 +28,36 @@
 
 <a href="chi-tiet.html">Sinh viên</a>
 
+<a href="score.html">Điểm</a>
+
 <a href="lien-he.html">AI Chat</a>
 
 </nav>
 
 </header>
 
-<h1>Quản lý sinh viên</h1>
+<h1>Quản lý điểm sinh viên</h1>
 
 <div style="width:90%;margin:auto;">
 
 <input
 type="text"
-id="studentID"
+id="scoreID"
 placeholder="Mã sinh viên">
 
 <input
 type="text"
-id="studentName"
-placeholder="Họ và tên">
+id="subject"
+placeholder="Môn học">
 
 <input
-type="text"
-id="studentClass"
-placeholder="Lớp">
+type="number"
+id="score"
+placeholder="Điểm">
 
-<button onclick="addStudent()">
+<button onclick="addScore()">
 
-Thêm sinh viên
+Thêm điểm
 
 </button>
 
@@ -67,9 +73,9 @@ Thêm sinh viên
 
 <th>MSSV</th>
 
-<th>Họ tên</th>
+<th>Môn học</th>
 
-<th>Lớp</th>
+<th>Điểm</th>
 
 <th>Xóa</th>
 
@@ -77,7 +83,7 @@ Thêm sinh viên
 
 </thead>
 
-<tbody id="studentList">
+<tbody id="scoreList">
 
 </tbody>
 
