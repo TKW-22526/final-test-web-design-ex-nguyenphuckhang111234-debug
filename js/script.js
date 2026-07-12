@@ -1,458 +1,156 @@
 // =========================
-// AI Classroom JavaScript
+// WEBSITE ĐẶC SẢN SÓC TRĂNG
 // =========================
 
-// Khi nhấn nút "Bắt đầu"
-function welcome() {
-    alert("Chào mừng bạn đến với Website AI Classroom!");
+// Thêm vào giỏ hàng
 
-    // Chuyển sang trang quản lý lớp
-    window.location.href = "html/san-pham.html";
-}
+function themGioHang(){
 
-// Hiển thị thời gian hiện tại
-function showTime() {
-    const now = new Date();
-
-    const time =
-        now.getHours().toString().padStart(2, "0") + ":" +
-        now.getMinutes().toString().padStart(2, "0") + ":" +
-        now.getSeconds().toString().padStart(2, "0");
-
-    const box = document.getElementById("time");
-
-    if (box) {
-        box.innerHTML = "🕒 " + time;
-    }
-}
-
-setInterval(showTime, 1000);
-
-// Kiểm tra ô tìm kiếm
-function searchClass() {
-
-    let keyword = document.getElementById("search");
-
-    if (keyword == null) return;
-
-    if (keyword.value.trim() == "") {
-
-        alert("Vui lòng nhập tên lớp cần tìm.");
-
-    }
-    else {
-
-        alert("Đang tìm lớp: " + keyword.value);
-
-    }
+    alert("Đã thêm sản phẩm vào giỏ hàng!");
 
 }
 
-// Thông báo khi mở website
-console.log("AI Classroom đã khởi động.");
-// ===============================
-// QUẢN LÝ LỚP HỌC
-// ===============================
+// Gửi liên hệ
 
-let classData =
-JSON.parse(localStorage.getItem("classData")) || [];
+const form = document.getElementById("contactForm");
 
-function renderClass(){
+if(form){
 
-let html="";
+    form.addEventListener("submit",function(e){
 
-classData.forEach(function(item,index){
+        e.preventDefault();
 
-html+=`
+        alert("Gửi liên hệ thành công!");
 
-<tr>
+        form.reset();
 
-<td>${index+1}</td>
-
-<td>${item}</td>
-
-<td>
-
-<button onclick="deleteClass(${index})">
-
-Xóa
-
-</button>
-
-</td>
-
-</tr>
-
-`;
-
-});
-
-let table=document.getElementById("classList");
-
-if(table){
-
-table.innerHTML=html;
+    });
 
 }
 
-}
+// Nút quay lên đầu trang
 
-function addClass(){
+const btn = document.createElement("button");
 
-let name=document.getElementById("className").value;
+btn.innerHTML = "↑";
 
-if(name.trim()==""){
+btn.id = "topBtn";
 
-alert("Vui lòng nhập tên lớp");
+document.body.appendChild(btn);
 
-return;
+btn.style.position = "fixed";
+btn.style.bottom = "20px";
+btn.style.right = "20px";
+btn.style.padding = "12px";
+btn.style.display = "none";
+btn.style.cursor = "pointer";
 
-}
+window.onscroll = function(){
 
-classData.push(name);
+    if(document.documentElement.scrollTop > 300){
 
-localStorage.setItem("classData",JSON.stringify(classData));
+        btn.style.display = "block";
 
-document.getElementById("className").value="";
+    }else{
 
-renderClass();
+        btn.style.display = "none";
 
-}
-
-function deleteClass(index){
-
-if(confirm("Bạn có chắc muốn xóa?")){
-
-classData.splice(index,1);
-
-localStorage.setItem("classData",JSON.stringify(classData));
-
-renderClass();
-
-}
-
-}
-
-renderClass();
-//=============================
-// QUẢN LÝ SINH VIÊN
-//=============================
-
-let students =
-JSON.parse(localStorage.getItem("students")) || [];
-
-function renderStudent(){
-
-let html="";
-
-students.forEach(function(item,index){
-
-html+=`
-
-<tr>
-
-<td>${index+1}</td>
-
-<td>${item.id}</td>
-
-<td>${item.name}</td>
-
-<td>${item.class}</td>
-
-<td>
-
-<button onclick="deleteStudent(${index})">
-
-Xóa
-
-</button>
-
-</td>
-
-</tr>
-
-`;
-
-});
-
-let table=document.getElementById("studentList");
-
-if(table){
-
-table.innerHTML=html;
-
-}
-
-}
-
-function addStudent(){
-
-let id=document.getElementById("studentID").value;
-
-let name=document.getElementById("studentName").value;
-
-let lop=document.getElementById("studentClass").value;
-
-if(id==""||name==""||lop==""){
-
-alert("Vui lòng nhập đầy đủ thông tin");
-
-return;
-
-}
-
-students.push({
-
-id:id,
-
-name:name,
-
-class:lop
-
-});
-
-localStorage.setItem("students",JSON.stringify(students));
-
-document.getElementById("studentID").value="";
-
-document.getElementById("studentName").value="";
-
-document.getElementById("studentClass").value="";
-
-renderStudent();
-
-}
-
-function deleteStudent(index){
-
-if(confirm("Bạn muốn xóa sinh viên này?")){
-
-students.splice(index,1);
-
-localStorage.setItem("students",JSON.stringify(students));
-
-renderStudent();
-
-}
-
-}
-
-renderStudent();
-//===========================
-// QUẢN LÝ ĐIỂM
-//===========================
-
-let scores =
-JSON.parse(localStorage.getItem("scores")) || [];
-
-function renderScore(){
-
-let html="";
-
-scores.forEach(function(item,index){
-
-html+=`
-
-<tr>
-
-<td>${index+1}</td>
-
-<td>${item.id}</td>
-
-<td>${item.subject}</td>
-
-<td>${item.score}</td>
-
-<td>
-
-<button onclick="deleteScore(${index})">
-
-Xóa
-
-</button>
-
-</td>
-
-</tr>
-
-`;
-
-});
-
-let table=document.getElementById("scoreList");
-
-if(table){
-
-table.innerHTML=html;
-
-}
-
-}
-
-function addScore(){
-
-let id=document.getElementById("scoreID").value;
-
-let subject=document.getElementById("subject").value;
-
-let score=document.getElementById("score").value;
-
-if(id==""||subject==""||score==""){
-
-alert("Vui lòng nhập đầy đủ thông tin");
-
-return;
-
-}
-
-scores.push({
-
-id:id,
-
-subject:subject,
-
-score:score
-
-});
-
-localStorage.setItem("scores",JSON.stringify(scores));
-
-document.getElementById("scoreID").value="";
-
-document.getElementById("subject").value="";
-
-document.getElementById("score").value="";
-
-renderScore();
-
-}
-
-function deleteScore(index){
-
-if(confirm("Bạn có chắc muốn xóa?")){
-
-scores.splice(index,1);
-
-localStorage.setItem("scores",JSON.stringify(scores));
-
-renderScore();
-
-}
-
-}
-
-renderScore();
-//========================
-// DASHBOARD
-//========================
-
-function loadDashboard(){
-
-let classData =
-JSON.parse(localStorage.getItem("classData")) || [];
-
-let students =
-JSON.parse(localStorage.getItem("students")) || [];
-
-let scores =
-JSON.parse(localStorage.getItem("scores")) || [];
-
-let total=0;
-
-scores.forEach(function(item){
-
-total+=Number(item.score);
-
-});
-
-let avg=0;
-
-if(scores.length>0){
-
-avg=(total/scores.length).toFixed(2);
-
-}
-
-if(document.getElementById("totalClass")){
-
-document.getElementById("totalClass").innerHTML=classData.length;
-
-}
-
-if(document.getElementById("totalStudent")){
-
-document.getElementById("totalStudent").innerHTML=students.length;
-
-}
-
-if(document.getElementById("totalScore")){
-
-document.getElementById("totalScore").innerHTML=scores.length;
-
-}
-
-if(document.getElementById("avgScore")){
-
-document.getElementById("avgScore").innerHTML=avg;
-
-}
-
-}
-
-loadDashboard();
-//=========================
-// AI CHATBOT
-//=========================
-
-function sendQuestion() {
-
-    let input = document.getElementById("question");
-    let chat = document.getElementById("chatBox");
-
-    if (!input || !chat) return;
-
-    let question = input.value.trim();
-
-    if (question === "") {
-        alert("Vui lòng nhập câu hỏi!");
-        return;
     }
 
-    chat.innerHTML += "<p><b>Bạn:</b> " + question + "</p>";
+}
 
-    let answer = "";
+btn.onclick = function(){
 
-    let q = question.toLowerCase();
+    window.scrollTo({
 
-    if (q.includes("xin chào")) {
+        top:0,
 
-        answer = "Xin chào! Chúc bạn học tập thật tốt.";
+        behavior:"smooth"
 
-    } else if (q.includes("lớp")) {
+    });
 
-        answer = "Bạn hãy vào mục Quản lý lớp học.";
+}
+function timKiemSanPham(){
 
-    } else if (q.includes("sinh viên")) {
+let input=document.getElementById("search").value.toUpperCase();
 
-        answer = "Bạn hãy vào mục Quản lý sinh viên.";
+let card=document.getElementsByClassName("card");
 
-    } else if (q.includes("điểm")) {
+for(let i=0;i<card.length;i++){
 
-        answer = "Bạn hãy vào mục Quản lý điểm.";
+let title=card[i].getElementsByTagName("h3")[0];
 
-    } else if (q.includes("ai")) {
+if(title.innerHTML.toUpperCase().indexOf(input)>-1){
 
-        answer = "Tôi là AI Classroom Chatbot.";
+card[i].style.display="block";
 
+}else{
+
+card[i].style.display="none";
+
+}
+
+}
+
+}
+let soLuong=0;
+
+function themGioHang(){
+
+soLuong++;
+
+document.getElementById("cart-count").innerHTML=soLuong;
+
+alert("Đã thêm vào giỏ hàng");
+
+}
+let images=[
+
+"assets/banner1.jpg",
+
+"assets/banner2.jpg",
+
+"assets/banner3.jpg"
+
+];
+
+let i=0;
+
+setInterval(function(){
+
+i++;
+
+if(i==images.length){
+
+i=0;
+
+}
+
+document.getElementById("slide").src=images[i];
+
+},3000);
+function dangNhap(){
+
+alert("Đăng nhập thành công");
+
+}
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(id, name, price, image) {
+    const item = cart.find(p => p.id === id);
+
+    if (item) {
+        item.quantity++;
     } else {
-
-        answer = "Xin lỗi, tôi chưa hiểu câu hỏi này.";
-
+        cart.push({
+            id,
+            name,
+            price,
+            image,
+            quantity: 1
+        });
     }
 
-    chat.innerHTML += "<p><b>AI:</b> " + answer + "</p>";
-
-    input.value = "";
-
-    chat.scrollTop = chat.scrollHeight;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Đã thêm vào giỏ hàng!");
 }

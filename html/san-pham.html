@@ -1,75 +1,153 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý lớp học</title>
+
+    <title>Sản phẩm - Đặc sản Sóc Trăng</title>
 
     <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
 
 <header>
+    <div class="search-box">
 
-<div class="logo">
-AI Classroom
-</div>
+        <input type="text"
+              id="search"
+              placeholder="Tìm kiếm sản phẩm..."
+              onkeyup="timKiemSanPham()">
 
-<nav>
+    </div>
 
-<a href="../index.html">Trang chủ</a>
+    <div class="logo">
 
-<a href="gioi-thieu.html">Giới thiệu</a>
+        <img src="../assets/img/images.jpg" alt="Logo">
 
-<a href="san-pham.html">Lớp học</a>
+        <h2>Đặc sản Sóc Trăng</h2>
 
-<a href="chi-tiet.html">Sinh viên</a>
+    </div>
 
-<a href="lien-he.html">AI Chat</a>
+    <nav>
 
-</nav>
+        <ul>
+
+            <li><a href="../index.html">Trang chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="san-pham.html">Sản phẩm</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+
+        </ul>
+
+    </nav>
 
 </header>
 
-<h1>Quản lý lớp học</h1>
+<section>
 
-<div style="width:80%;margin:auto;">
+<h2>Danh sách đặc sản Sóc Trăng</h2>
 
-<input
-type="text"
-id="className"
-placeholder="Nhập tên lớp">
+<div class="product">
 
-<button onclick="addClass()">
-Thêm lớp
-</button>
+<div class="card">
+<img src="../assets/img/banh-pia-ngon-8-1741477298.jpg">
+<h3>Bánh Pía</h3>
+<p>120.000đ</p>
+<a href="chi-tiet.html">Xem chi tiết</a>
+</div>
 
-<br><br>
+<div class="card">
+<img src="../assets/img/imageslapxuong.jpg">
+<h3>Lạp Xưởng</h3>
+<p>180.000đ</p>
+<a href="../html/lapxuong.html">Xem chi tiết</a>
+</div>
 
-<table>
+<div class="card">
+<img src="../assets/img/review-banh-cong-soc-trang-mon-an-duoc-nhieu-nguoi-yeu-thich-05-1664914225.jpg">
+<h3>Bánh Cống</h3>
+<p>50.000đ</p>
+<a href="../html/banh-cong.html">Xem chi tiết</a>
+</div>
 
-<thead>
+<div class="card">
+<img src="../assets/img/nham-nhi-mieng-kho-trau-thanh-tri-mem-ngot-nhin-la-them-02-1664309319.jpg">
+<h3>Khô Trâu</h3>
+<p>450.000đ</p>
+<a href="../html/kho-trau.html">Xem chi tiết</a>
+</div>
 
-<tr>
+<div class="card">
+<img src="../assets/img/imagesmambohoc.jpg">
+<h3>Mắm Bò Hóc</h3>
+<p>130.000đ</p>
+<a href="../html/mam-bo-hoc.html">Xem chi tiết</a>
+</div>
 
-<th>STT</th>
+<div class="card">
+<img src="../assets/img/tomkho.jpg">
+<h3>Tôm Khô</h3>
+<p>350.000đ</p>
+<a href="../html/tom-kho.html">Xem chi tiết</a>
+</div>
 
-<th>Tên lớp</th>
+<div class="card">
+<img src="../assets/img/chalua.jpg">
+<h3>Chả Lụa</h3>
+<p>160.000đ</p>
+<a href="../html/cha-lua.html">Xem chi tiết</a>
+</div>
 
-<th>Thao tác</th>
+<div class="card">
+<img src="../assets/img/gao-ong-cua-st25.jpg">
+<h3>Gạo ST25</h3>
+<p>220.000đ</p>
+<a href="../html/gao-st25.html">Xem chi tiết</a>
+</div>
 
-</tr>
+<div class="card">
+<img src="../assets/img/banh-ong-soc-trang-dac-san-khong-the-bo-lo-khi-di-du-lich-mien-tay-4-1664978349.jpg">
+<h3>Bánh ống</h3>
+<p>20.000đ</p>
+<a href="../html/banh-ong.html">Xem chi tiết</a>
+</div>
 
-</thead>
+<div class="card">
+<img src="../assets/img/kho-ca-sac-boi-cm.jpg">
+<h3>Khô Cá Sặc</h3>
+<p>200.000đ</p>
+<a href="../html/kho-ca-sac.html">Xem chi tiết</a>
+</div>
 
-<tbody id="classList">
+<div class="card">
+<img src="../assets/img/hanh-tim-vinh-chau-nong-san-noi-tieng-cua-tinh-soc-trang-2-1663435267.jpg">
+<h3>Hành tím Vĩnh Châu</h3>
+<p>40.000đ</p>
+<a href="../html/hanhtim-vinhchau.html">Xem chi tiết</a>
+</div>
 
-</tbody>
-
-</table>
+<div class="card">
+<img src="../assets/img/banh-in-co-co-soc-trang-ngot-ngao-huong-vi-mien-tay-4-1663947184.jpg">
+<h3>Bánh in</h3>
+<p>60.000đ</p>
+<a href="../html/banh-in.html">Xem chi tiết</a>
+</div>
 
 </div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Website Đặc sản Sóc Trăng
+</p>
+
+</footer>
 
 <script src="../js/script.js"></script>
 
