@@ -104,31 +104,29 @@ document.getElementById("cart-count").innerHTML=soLuong;
 alert("Đã thêm vào giỏ hàng");
 
 }
-let images=[
-
-"assets/banner1.jpg",
-
-"assets/banner2.jpg",
-
-"assets/banner3.jpg"
-
+let images = [
+    "assets/banner1.jpg",
+    "assets/banner2.jpg",
+    "assets/banner3.jpg"
 ];
 
-let i=0;
+let i = 0;
 
-setInterval(function(){
+setInterval(function () {
 
-i++;
+    let slide = document.getElementById("slide");
 
-if(i==images.length){
+    if (!slide) return;
 
-i=0;
+    i++;
 
-}
+    if (i >= images.length) {
+        i = 0;
+    }
 
-document.getElementById("slide").src=images[i];
+    slide.src = images[i];
 
-},3000);
+}, 3000);
 function dangNhap(){
 
 alert("Đăng nhập thành công");
@@ -356,5 +354,37 @@ window.onload=function(){
     capNhatSoLuongGioHang();
 
     hienThiGioHang();
+
+}
+function guiDanhGia(){
+
+    let text = document.getElementById("reviewText").value.trim();
+
+    if(text==""){
+
+        alert("Vui lòng nhập đánh giá!");
+
+        return;
+
+    }
+
+    let list = document.getElementById("reviewList");
+
+    let div = document.createElement("div");
+
+    div.className="review-item";
+
+    div.innerHTML=`
+        <p><strong>Khách hàng</strong></p>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>${text}</p>
+        <hr>
+    `;
+
+    list.prepend(div);
+
+    document.getElementById("reviewText").value="";
+
+    alert("Đánh giá thành công!");
 
 }
