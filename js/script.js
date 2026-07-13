@@ -134,23 +134,227 @@ function dangNhap(){
 alert("Đăng nhập thành công");
 
 }
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// =========================
+// GIỎ HÀNG
+// =========================
 
-function addToCart(id, name, price, image) {
-    const item = cart.find(p => p.id === id);
+// Lấy giỏ hàng từ LocalStorage
+let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
 
-    if (item) {
-        item.quantity++;
+// Thêm sản phẩm vào giỏ hàng
+function themGioHang(ten, gia, hinh) {
+
+    let sp = gioHang.find(item => item.ten === ten);
+
+    if (sp) {
+
+        sp.soLuong++;
+
     } else {
-        cart.push({
-            id,
-            name,
-            price,
-            image,
-            quantity: 1
+
+        gioHang.push({
+
+            ten: ten,
+            gia: gia,
+            hinh: hinh,
+            soLuong: 1
+
         });
+
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Đã thêm vào giỏ hàng!");
+    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+    capNhatSoLuongGioHang();
+
+    alert("✅ Đã thêm vào giỏ hàng!");
+
+}
+
+// Cập nhật số lượng trên icon
+function capNhatSoLuongGioHang() {
+
+    let badge = document.getElementById("cart-count");
+
+    if (!badge) return;
+
+    let tong = 0;
+
+    gioHang.forEach(sp => {
+
+        tong += sp.soLuong;
+
+    });
+
+    badge.innerHTML = tong;
+
+}
+
+// Hiển thị giỏ hàng
+function hienThiGioHang() {
+
+    let tbody = document.getElementById("cart-body");
+
+    if (!tbody) return;
+
+    gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+
+    tbody.innerHTML = "";
+
+    let tongTien = 0;
+
+    gioHang.forEach((sp, index) => {
+
+        tongTien += sp.gia * sp.soLuong;
+
+        tbody.innerHTML += `
+
+        <tr>
+
+            <td>
+                <img src="${sp.hinh}" width="80">
+            </td>
+
+            <td>${sp.ten}</td>
+
+            <td>${sp.gia.toLocaleString()} VNĐ</td>
+
+            <td>
+
+                <button onclick="giamSoLuong(${index})">-</button>
+
+                ${sp.soLuong}
+
+                <button onclick="tangSoLuong(${index})">+</button>
+
+            </td>
+
+            <td>${(sp.gia*sp.soLuong).toLocaleString()} VNĐ</td>
+
+            <td>
+
+                <button onclick="xoaSanPham(${index})">
+
+                    ❌
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    let tong = document.getElementById("tongTien");
+
+    if (tong) {
+
+        tong.innerHTML =
+
+        "Tổng tiền: <span style='color:red'>" +
+
+        tongTien.toLocaleString() +
+
+        " VNĐ</span>";
+
+    }
+
+}
+
+// Tăng số lượng
+function tangSoLuong(index){
+
+    gioHang[index].soLuong++;
+
+    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+    hienThiGioHang();
+
+    capNhatSoLuongGioHang();
+
+}
+
+// Giảm số lượng
+function giamSoLuong(index){
+
+    if(gioHang[index].soLuong>1){
+
+        gioHang[index].soLuong--;
+
+    }else{
+
+        gioHang.splice(index,1);
+
+    }
+
+    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+    hienThiGioHang();
+
+    capNhatSoLuongGioHang();
+
+}
+
+// Xóa sản phẩm
+function xoaSanPham(index){
+
+    gioHang.splice(index,1);
+
+    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+    hienThiGioHang();
+
+    capNhatSoLuongGioHang();
+
+}
+
+// Xóa toàn bộ
+function xoaGioHang(){
+
+    if(confirm("Bạn có chắc muốn xóa toàn bộ giỏ hàng?")){
+
+        gioHang=[];
+
+        localStorage.removeItem("gioHang");
+
+        hienThiGioHang();
+
+        capNhatSoLuongGioHang();
+
+    }
+
+}
+
+// Thanh toán
+function thanhToan(){
+
+    if(gioHang.length==0){
+
+        alert("Giỏ hàng đang trống!");
+
+        return;
+
+    }
+
+    alert("🎉 Đặt hàng thành công!");
+
+    gioHang=[];
+
+    localStorage.removeItem("gioHang");
+
+    hienThiGioHang();
+
+    capNhatSoLuongGioHang();
+
+}
+
+// Khi mở trang
+window.onload=function(){
+
+    capNhatSoLuongGioHang();
+
+    hienThiGioHang();
+
 }

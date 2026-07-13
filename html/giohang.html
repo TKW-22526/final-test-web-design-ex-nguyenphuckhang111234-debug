@@ -1,19 +1,111 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Giỏ hàng</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
 <body>
 
-<h1>Giỏ hàng của bạn</h1>
+<header>
 
-<table id="cartTable">
-</table>
+    <div class="logo">
 
-<h3>Tổng tiền: <span id="total">0</span> VNĐ</h3>
+        <img src="../assets/img/images.jpg" alt="Logo">
 
-<script src="js/script.js"></script>
+        <h2>Đặc sản Sóc Trăng</h2>
+
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="../index.html">Trang chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="san-pham.html">Sản phẩm</a></li>
+            <li><a href="giohang.html">Giỏ hàng 🛒</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="giohang">
+
+    <h2>🛒 Giỏ hàng của bạn</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Ảnh</th>
+
+                <th>Sản phẩm</th>
+
+                <th>Giá</th>
+
+                <th>Số lượng</th>
+
+                <th>Thành tiền</th>
+
+                <th>Xóa</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="cart-body">
+
+        </tbody>
+
+    </table>
+
+    <h2 id="tongTien">
+
+        Tổng tiền: 0 VNĐ
+
+    </h2>
+
+    <br>
+
+    <button onclick="xoaGioHang()">
+
+        🗑 Xóa toàn bộ
+
+    </button>
+
+    <button onclick="thanhToan()">
+
+        💳 Thanh toán
+
+    </button>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Website giới thiệu và kinh doanh đặc sản Sóc Trăng
+
+</p>
+
+</footer>
+
+<script src="../js/script.js"></script>
 
 </body>
+
 </html>
