@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Đăng ký</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!--=========================
+            HEADER
+    =========================-->
+
+    <header>
+
+        <h1>ĐẶC SẢN SÓC TRĂNG</h1>
+
+        <nav>
+
+            <a href="../index.html">Trang chủ</a>
+
+            <a href="gioi-thieu.html">Giới thiệu</a>
+
+            <a href="san-pham.html">Sản phẩm</a>
+
+            <a href="giohang.html">
+
+                🛒 Giỏ hàng
+
+                (<span id="soLuongGio">0</span>)
+
+            </a>
+
+            <a href="dang-nhap.html">
+
+                Đăng nhập
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!--=========================
+            ĐĂNG KÝ
+    =========================-->
+
+    <main>
+
+        <section class="dangKy">
+
+            <h2>
+
+                ĐĂNG KÝ TÀI KHOẢN
+
+            </h2>
+
+            <form id="formDangKy">
+
+                <div>
+
+                    <label>Họ và tên</label>
+
+                    <input
+                        type="text"
+                        id="hoTen"
+                        placeholder="Nhập họ và tên"
+                        required>
+
+                </div>
+
+                <br>
+
+                <div>
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Nhập email"
+                        required>
+
+                </div>
+
+                <br>
+
+                <div>
+
+                    <label>Mật khẩu</label>
+
+                    <input
+                        type="password"
+                        id="matKhau"
+                        placeholder="Nhập mật khẩu"
+                        required>
+
+                </div>
+
+                <br>
+
+                <div>
+
+                    <label>Nhập lại mật khẩu</label>
+
+                    <input
+                        type="password"
+                        id="nhapLaiMatKhau"
+                        placeholder="Nhập lại mật khẩu"
+                        required>
+
+                </div>
+
+                <br>
+
+                <button type="submit">
+
+                    Đăng ký
+
+                </button>
+
+            </form>
+
+            <br>
+
+            <p>
+
+                Đã có tài khoản?
+
+                <a href="dang-nhap.html">
+
+                    Đăng nhập ngay
+
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!--=========================
+            FOOTER
+    =========================-->
+
+    <footer>
+
+        <p>
+
+            © 2026 Website Giới thiệu và Kinh doanh Đặc sản Sóc Trăng
+
+        </p>
+
+    </footer>
+
+
+    <!--=========================
+            JAVASCRIPT
+    =========================-->
+
+    <script src="../js/du-lieu.js"></script>
+
+    <script src="../js/dangky.js"></script>
+
+</body>
+
+</html>

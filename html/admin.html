@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quản trị hệ thống</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!--=====================================
+                HEADER
+    ======================================-->
+
+    <header>
+
+        <h1>TRANG QUẢN TRỊ</h1>
+
+        <nav>
+
+            <a href="../index.html">Trang chủ</a>
+
+            <a href="san-pham.html">Sản phẩm</a>
+
+            <a href="giohang.html">Giỏ hàng</a>
+
+            <a href="dang-nhap.html">Đăng xuất</a>
+
+        </nav>
+
+    </header>
+
+
+    <!--=====================================
+            QUẢN LÝ DANH MỤC
+    ======================================-->
+
+    <section>
+
+        <h2>QUẢN LÝ DANH MỤC</h2>
+
+        <form id="formDanhMuc">
+
+            <input
+                type="hidden"
+                id="idDanhMuc">
+
+            <input
+                type="text"
+                id="tenDanhMuc"
+                placeholder="Tên danh mục"
+                required>
+
+            <button type="submit">
+
+                Lưu danh mục
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <table border="1" width="100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Tên danh mục</th>
+
+                    <th>Sửa</th>
+
+                    <th>Xóa</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="bangDanhMuc">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <hr>
+
+
+    <!--=====================================
+            QUẢN LÝ SẢN PHẨM
+    ======================================-->
+
+    <section>
+
+        <h2>QUẢN LÝ SẢN PHẨM</h2>
+
+        <form id="formSanPham">
+
+            <input
+                type="hidden"
+                id="id">
+
+            <input
+                type="text"
+                id="ten"
+                placeholder="Tên sản phẩm"
+                required>
+
+            <input
+                type="number"
+                id="gia"
+                placeholder="Giá"
+                required>
+
+            <input
+                type="text"
+                id="hinh"
+                placeholder="Tên hình">
+
+            <select id="danhMuc">
+
+                <option value="">
+
+                    Chọn danh mục
+
+                </option>
+
+            </select>
+
+            <textarea
+                id="moTa"
+                placeholder="Mô tả sản phẩm"></textarea>
+
+            <button type="submit">
+
+                Lưu sản phẩm
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <table border="1" width="100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Tên</th>
+
+                    <th>Giá</th>
+
+                    <th>Danh mục</th>
+
+                    <th>Sửa</th>
+
+                    <th>Xóa</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="bangSanPham">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <hr>
+
+
+    <!--=====================================
+            QUẢN LÝ NGƯỜI DÙNG
+    ======================================-->
+
+    <section>
+
+        <h2>QUẢN LÝ NGƯỜI DÙNG</h2>
+
+        <table border="1" width="100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Họ tên</th>
+
+                    <th>Email</th>
+
+                    <th>Quyền</th>
+
+                    <th>Xóa</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="bangNguoiDung">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <hr>
+
+
+    <!--=====================================
+            QUẢN LÝ ĐƠN HÀNG
+    ======================================-->
+
+    <section>
+
+        <h2>QUẢN LÝ ĐƠN HÀNG</h2>
+
+        <table border="1" width="100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>Mã</th>
+
+                    <th>Khách hàng</th>
+
+                    <th>Tổng tiền</th>
+
+                    <th>Trạng thái</th>
+
+                    <th>Cập nhật</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="bangDonHang">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!--=====================================
+                FOOTER
+    ======================================-->
+
+    <footer>
+
+        <p>
+
+            © 2026 Website Đặc sản Sóc Trăng
+
+        </p>
+
+    </footer>
+
+
+    <!--=====================================
+                JAVASCRIPT
+    ======================================-->
+
+    <script src="../js/du-lieu.js"></script>
+
+    <script src="../js/quantri.js"></script>
+
+</body>
+
+</html>

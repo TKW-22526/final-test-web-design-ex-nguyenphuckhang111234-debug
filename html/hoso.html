@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Hồ sơ cá nhân</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>HỒ SƠ CÁ NHÂN</h1>
+
+<nav>
+
+<a href="../index.html">Trang chủ</a>
+
+<a href="san-pham.html">Sản phẩm</a>
+
+<a href="giohang.html">Giỏ hàng</a>
+
+<a href="yeu-thich.html">Yêu thích</a>
+
+<a href="lien-he.html">Liên hệ</a>
+
+</nav>
+
+</header>
+
+<form id="formHoSo">
+
+<input
+type="text"
+id="hoTen"
+placeholder="Họ tên">
+
+<input
+type="email"
+id="email"
+readonly>
+
+<input
+type="password"
+id="matKhau"
+placeholder="Mật khẩu mới">
+
+<button type="submit">
+
+Cập nhật
+
+</button>
+
+</form>
+
+<hr>
+
+<h2>Lịch sử đơn hàng</h2>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Mã đơn</th>
+
+<th>Số sản phẩm</th>
+
+<th>Tổng tiền</th>
+
+<th>Trạng thái</th>
+
+</tr>
+
+</thead>
+
+<tbody id="bangLichSu">
+
+</tbody>
+
+</table>
+
+<script src="../js/du-lieu.js"></script>
+
+<script src="../js/hoso.js"></script>
+
+</body>
+
+</html>

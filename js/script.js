@@ -1,390 +1,345 @@
-// =========================
-// WEBSITE ĐẶC SẢN SÓC TRĂNG
-// =========================
+/*==================================================
+=        WEBSITE ĐẶC SẢN SÓC TRĂNG
+=        FILE: script.js
+==================================================*/
 
-// Thêm vào giỏ hàng
 
-function themGioHang(){
+/*==================================================
+=        KHAI BÁO BIẾN
+==================================================*/
 
-    alert("Đã thêm sản phẩm vào giỏ hàng!");
+const slide = document.getElementById("slide");
 
-}
+const soLuongGio = document.getElementById("soLuongGio");
 
-// Gửi liên hệ
+const danhSachSanPham = document.getElementById("danhSachSanPham");
 
-const form = document.getElementById("contactForm");
+let banner = [
 
-if(form){
+    "assets/img/baner1.jpg",
 
-    form.addEventListener("submit",function(e){
+    "assets/img/baner2.jpg",
 
-        e.preventDefault();
+    "assets/img/baner3.jpg"
 
-        alert("Gửi liên hệ thành công!");
-
-        form.reset();
-
-    });
-
-}
-
-// Nút quay lên đầu trang
-
-const btn = document.createElement("button");
-
-btn.innerHTML = "↑";
-
-btn.id = "topBtn";
-
-document.body.appendChild(btn);
-
-btn.style.position = "fixed";
-btn.style.bottom = "20px";
-btn.style.right = "20px";
-btn.style.padding = "12px";
-btn.style.display = "none";
-btn.style.cursor = "pointer";
-
-window.onscroll = function(){
-
-    if(document.documentElement.scrollTop > 300){
-
-        btn.style.display = "block";
-
-    }else{
-
-        btn.style.display = "none";
-
-    }
-
-}
-
-btn.onclick = function(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-function timKiemSanPham(){
-
-let input=document.getElementById("search").value.toUpperCase();
-
-let card=document.getElementsByClassName("card");
-
-for(let i=0;i<card.length;i++){
-
-let title=card[i].getElementsByTagName("h3")[0];
-
-if(title.innerHTML.toUpperCase().indexOf(input)>-1){
-
-card[i].style.display="block";
-
-}else{
-
-card[i].style.display="none";
-
-}
-
-}
-
-}
-let soLuong=0;
-
-function themGioHang(){
-
-soLuong++;
-
-document.getElementById("cart-count").innerHTML=soLuong;
-
-alert("Đã thêm vào giỏ hàng");
-
-}
-let images = [
-    "assets/banner1.jpg",
-    "assets/banner2.jpg",
-    "assets/banner3.jpg"
 ];
 
-let i = 0;
+let viTri = 0;
 
-setInterval(function () {
 
-    let slide = document.getElementById("slide");
+/*==================================================
+=        HIỂN THỊ SỐ LƯỢNG GIỎ HÀNG
+==================================================*/
 
-    if (!slide) return;
+function capNhatSoLuongGio(){
 
-    i++;
+    if(soLuongGio==null){
 
-    if (i >= images.length) {
-        i = 0;
+        return;
+
     }
 
-    slide.src = images[i];
+    let gioHang = docDuLieu("gioHang") || [];
 
-}, 3000);
-function dangNhap(){
+    let tong = 0;
 
-alert("Đăng nhập thành công");
+    gioHang.forEach(function(item){
+
+        tong += item.soLuong;
+
+    });
+
+    soLuongGio.innerHTML = tong;
 
 }
-// =========================
-// GIỎ HÀNG
-// =========================
 
-// Lấy giỏ hàng từ LocalStorage
-let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+capNhatSoLuongGio();
 
-// Thêm sản phẩm vào giỏ hàng
-function themGioHang(ten, gia, hinh) {
 
-    let sp = gioHang.find(item => item.ten === ten);
+/*==================================================
+=        SLIDER
+==================================================*/
 
-    if (sp) {
+function hienThiBanner(){
 
-        sp.soLuong++;
+    if(slide==null){
 
-    } else {
+        return;
+
+    }
+
+    slide.src = banner[viTri];
+
+}
+
+
+function bannerKe(){
+
+    viTri++;
+
+    if(viTri >= banner.length){
+
+        viTri = 0;
+
+    }
+
+    hienThiBanner();
+
+}
+
+
+function bannerTruoc(){
+
+    viTri--;
+
+    if(viTri < 0){
+
+        viTri = banner.length - 1;
+
+    }
+
+    hienThiBanner();
+
+}
+
+
+/*==================================================
+=        TỰ ĐỘNG CHUYỂN SLIDE
+==================================================*/
+
+if(slide){
+
+    setInterval(function(){
+
+        bannerKe();
+
+    },3000);
+
+}
+
+
+/*==================================================
+=        SỰ KIỆN NÚT CHUYỂN
+==================================================*/
+
+const btnTrai = document.getElementById("btnTrai");
+
+const btnPhai = document.getElementById("btnPhai");
+
+if(btnTrai){
+
+    btnTrai.onclick = function(){
+
+        bannerTruoc();
+
+    }
+
+}
+
+if(btnPhai){
+
+    btnPhai.onclick = function(){
+
+        bannerKe();
+
+    }
+
+}
+
+
+/*==================================================
+=        HIỂN THỊ TÀI KHOẢN ĐĂNG NHẬP
+==================================================*/
+
+function hienThiTaiKhoan(){
+
+    let taiKhoan = docDuLieu("taiKhoan");
+
+    if(taiKhoan==null){
+
+        return;
+
+    }
+
+    console.log("Xin chào: " + taiKhoan.hoTen);
+
+}
+
+hienThiTaiKhoan();
+
+
+/*==================================================
+=        KHỞI TẠO TRANG
+==================================================*/
+
+window.onload = function(){
+
+    capNhatSoLuongGio();
+
+    hienThiBanner();
+
+}
+/*==================================================
+=        HIỂN THỊ SẢN PHẨM NỔI BẬT
+==================================================*/
+
+function hienThiSanPhamNoiBat() {
+
+    if (danhSachSanPham == null) {
+
+        return;
+
+    }
+
+    danhSachSanPham.innerHTML = "";
+
+    let ds = sanPham.slice(0, 8);
+
+    ds.forEach(function (sp) {
+
+        danhSachSanPham.innerHTML += `
+
+<div class="sanPham">
+
+    <img src="assets/img/${sp.hinh}" alt="${sp.ten}">
+
+    <h3>${sp.ten}</h3>
+
+    <p>${sp.moTa}</p>
+
+    <h4>${sp.gia.toLocaleString()} đ</h4>
+
+    <div class="nutSanPham">
+
+        <a href="html/chi-tiet.html?id=${sp.id}">
+
+            <button>
+
+                Xem chi tiết
+
+            </button>
+
+        </a>
+
+        <button onclick="themGioHangTrangChu(${sp.id})">
+
+            Thêm vào giỏ
+
+        </button>
+
+        <button onclick="themYeuThichTrangChu(${sp.id})">
+
+            ❤
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+    });
+
+}
+
+
+/*==================================================
+=        THÊM VÀO GIỎ HÀNG
+==================================================*/
+
+function themGioHangTrangChu(id) {
+
+    let gioHang = docDuLieu("gioHang") || [];
+
+    let sp = timSanPham(id);
+
+    let tonTai = gioHang.find(function (item) {
+
+        return item.id == id;
+
+    });
+
+    if (tonTai) {
+
+        tonTai.soLuong++;
+
+    }
+
+    else {
 
         gioHang.push({
 
-            ten: ten,
-            gia: gia,
-            hinh: hinh,
+            id: sp.id,
+
+            ten: sp.ten,
+
+            gia: sp.gia,
+
+            hinh: sp.hinh,
+
             soLuong: 1
 
         });
 
     }
 
-    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+    capNhatGioHang();
 
-    capNhatSoLuongGioHang();
+    luuDuLieu("gioHang", gioHang);
 
-    alert("✅ Đã thêm vào giỏ hàng!");
+    capNhatSoLuongGio();
+
+    alert("Đã thêm vào giỏ hàng.");
 
 }
 
-// Cập nhật số lượng trên icon
-function capNhatSoLuongGioHang() {
 
-    let badge = document.getElementById("cart-count");
+/*==================================================
+=        THÊM YÊU THÍCH
+==================================================*/
 
-    if (!badge) return;
+function themYeuThichTrangChu(id) {
 
-    let tong = 0;
+    let yeuThich = docDuLieu("yeuThich") || [];
 
-    gioHang.forEach(sp => {
+    let tonTai = yeuThich.find(function (item) {
 
-        tong += sp.soLuong;
+        return item.id == id;
 
     });
 
-    badge.innerHTML = tong;
+    if (tonTai) {
 
-}
-
-// Hiển thị giỏ hàng
-function hienThiGioHang() {
-
-    let tbody = document.getElementById("cart-body");
-
-    if (!tbody) return;
-
-    gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-
-    tbody.innerHTML = "";
-
-    let tongTien = 0;
-
-    gioHang.forEach((sp, index) => {
-
-        tongTien += sp.gia * sp.soLuong;
-
-        tbody.innerHTML += `
-
-        <tr>
-
-            <td>
-                <img src="${sp.hinh}" width="80">
-            </td>
-
-            <td>${sp.ten}</td>
-
-            <td>${sp.gia.toLocaleString()} VNĐ</td>
-
-            <td>
-
-                <button onclick="giamSoLuong(${index})">-</button>
-
-                ${sp.soLuong}
-
-                <button onclick="tangSoLuong(${index})">+</button>
-
-            </td>
-
-            <td>${(sp.gia*sp.soLuong).toLocaleString()} VNĐ</td>
-
-            <td>
-
-                <button onclick="xoaSanPham(${index})">
-
-                    ❌
-
-                </button>
-
-            </td>
-
-        </tr>
-
-        `;
-
-    });
-
-    let tong = document.getElementById("tongTien");
-
-    if (tong) {
-
-        tong.innerHTML =
-
-        "Tổng tiền: <span style='color:red'>" +
-
-        tongTien.toLocaleString() +
-
-        " VNĐ</span>";
-
-    }
-
-}
-
-// Tăng số lượng
-function tangSoLuong(index){
-
-    gioHang[index].soLuong++;
-
-    localStorage.setItem("gioHang", JSON.stringify(gioHang));
-
-    hienThiGioHang();
-
-    capNhatSoLuongGioHang();
-
-}
-
-// Giảm số lượng
-function giamSoLuong(index){
-
-    if(gioHang[index].soLuong>1){
-
-        gioHang[index].soLuong--;
-
-    }else{
-
-        gioHang.splice(index,1);
-
-    }
-
-    localStorage.setItem("gioHang", JSON.stringify(gioHang));
-
-    hienThiGioHang();
-
-    capNhatSoLuongGioHang();
-
-}
-
-// Xóa sản phẩm
-function xoaSanPham(index){
-
-    gioHang.splice(index,1);
-
-    localStorage.setItem("gioHang", JSON.stringify(gioHang));
-
-    hienThiGioHang();
-
-    capNhatSoLuongGioHang();
-
-}
-
-// Xóa toàn bộ
-function xoaGioHang(){
-
-    if(confirm("Bạn có chắc muốn xóa toàn bộ giỏ hàng?")){
-
-        gioHang=[];
-
-        localStorage.removeItem("gioHang");
-
-        hienThiGioHang();
-
-        capNhatSoLuongGioHang();
-
-    }
-
-}
-
-// Thanh toán
-function thanhToan(){
-
-    if(gioHang.length==0){
-
-        alert("Giỏ hàng đang trống!");
+        alert("Sản phẩm đã có trong danh sách yêu thích.");
 
         return;
 
     }
 
-    alert("🎉 Đặt hàng thành công!");
+    let sp = timSanPham(id);
 
-    gioHang=[];
+    yeuThich.push(sp);
 
-    localStorage.removeItem("gioHang");
+    luuDuLieu(
 
-    hienThiGioHang();
+        "yeuThich",
 
-    capNhatSoLuongGioHang();
+        yeuThich
 
-}
+    );
 
-// Khi mở trang
-window.onload=function(){
-
-    capNhatSoLuongGioHang();
-
-    hienThiGioHang();
+    alert("Đã thêm vào yêu thích.");
 
 }
-function guiDanhGia(){
 
-    let text = document.getElementById("reviewText").value.trim();
 
-    if(text==""){
+/*==================================================
+=        HIỂN THỊ KHI MỞ TRANG
+==================================================*/
 
-        alert("Vui lòng nhập đánh giá!");
+if (danhSachSanPham) {
 
-        return;
-
-    }
-
-    let list = document.getElementById("reviewList");
-
-    let div = document.createElement("div");
-
-    div.className="review-item";
-
-    div.innerHTML=`
-        <p><strong>Khách hàng</strong></p>
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>${text}</p>
-        <hr>
-    `;
-
-    list.prepend(div);
-
-    document.getElementById("reviewText").value="";
-
-    alert("Đánh giá thành công!");
+    hienThiSanPhamNoiBat();
 
 }

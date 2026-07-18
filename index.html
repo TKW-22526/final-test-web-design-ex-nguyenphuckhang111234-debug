@@ -1,115 +1,223 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Đặc sản Sóc Trăng</title>
+    <title >Website Giới thiệu và Kinh doanh Đặc sản Sóc Trăng</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<header>
-   <div class="slider">
+    <!--=========================
+        HEADER
+    ==========================-->
 
-</div>
+    <header>
 
-   <div class="cart">
-    <a href="html/giohang.html">
-        🛒 Giỏ hàng:
-        <span id="cart-count">0</span>
-    </a>
-   </div>
+        <div class="logo">
 
-    <div class="logo">
+            <h1>ĐẶC SẢN SÓC TRĂNG</h1>
 
-        <img src="assets/img/images.jpg" alt="Logo">
+        </div>
 
-        <h2>Đặc sản Sóc Trăng</h2>
+        <nav>
 
-    </div>
+            <ul>
 
-    <nav>
+                <li>
 
-        <ul>
+                    <a href="index.html">
+                        Trang chủ
+                    </a>
 
-            <li><a href="index.html">Trang chủ</a></li>
+                </li>
 
-            <li><a href="html/gioi-thieu.html">Giới thiệu</a></li>
+                <li>
 
-            <li><a href="html/lich-su.html">Lịch sử</a></li>
+                    <a href="html/gioi-thieu.html">
+                        Giới thiệu
+                    </a>
 
-            <li><a href="html/san-pham.html">Sản phẩm</a></li>
+                </li>
 
-            <li><a href="html/lien-he.html">Liên hệ</a></li>
+                <li>
 
-        </ul>
+                    <a href="html/san-pham.html">
+                        Sản phẩm
+                    </a>
 
-    </nav>
+                </li>
 
-</header>
+                <li>
 
-<section class="banner">
+                    <a href="html/giohang.html">
+                        🛒 Giỏ hàng
+                        (<span id="soLuongGio">0</span>)
+                    </a>
 
-    <h1>ĐẶC SẢN SÓC TRĂNG</h1>
+                </li>
 
-    <p>Đậm đà hương vị miền Tây</p>
+                <li>
 
-</section>
+                    <a href="html/yeu-thich.html">
+                        ❤️ Yêu thích
+                    </a>
 
-<section class="about">
+                </li>
 
-    <h2>Giới thiệu</h2>
+                <li>
 
-<div class="title-line">
-    <span></span>
-    <i class="fa-solid fa-spa"></i>
-    <span></span>
-</div>
-    <p>
+                    <a href="html/lien-he.html">
+                        Liên hệ
+                    </a>
 
-        Website chuyên giới thiệu và kinh doanh các đặc sản nổi tiếng của tỉnh Sóc Trăng như:
+                </li>
 
-        Bánh Pía, Lạp Xưởng, Bánh Cống, Khô Trâu, Mắm,...
+                <li>
 
-    </p>
+                    <a href="html/hoso.html">
+                        Hồ sơ
+                    </a>
 
-</section>
+                </li>
 
-<section class="product">
+                <li>
 
-<h2>Sản phẩm nổi bật nhất</h2>
+                    <a href="html/dang-nhap.html">
+                        Đăng nhập
+                    </a>
 
-<div class="card">
+                </li>
 
-<img src="../final-test-web-design-ex-nguyenphuckhang111234-debug/assets/img/pia.jpg" alt="Đặc sản">
+                <li>
 
-<h3>Bánh Pía</h3>
+                    <a href="html/dang-ky.html">
+                        Đăng ký
+                    </a>
 
-<p>Giá: 120.000đ</p>
+                </li>
 
-<a href="html/chi-tiet.html">Xem chi tiết</a>
+            </ul>
 
-</div>
+        </nav>
 
-</section>
+    </header>
 
-<footer>
+    <!--=========================
+        SLIDER
+    ==========================-->
 
-<p>
+    <section id="slider">
 
-© 2026 Website Đặc sản Sóc Trăng
+        <button id="btnTrai">
+            ❮
+        </button>
 
-</p>
+        <img
+            id="slide"
+            src="assets/img/kinh-doanh-dac-san-vung-mien.jpg"
+            alt="Banner">
 
-</footer>
+        <button id="btnPhai">
+            ❯
+        </button>
 
-<script src="js/script.js"></script>
+    </section>
+
+    <!--=========================
+        GIỚI THIỆU
+    ==========================-->
+
+    <section class="gioiThieu">
+
+        <h2>
+
+            Chào mừng đến với Website
+            Giới thiệu và Kinh doanh
+            Đặc sản Sóc Trăng
+
+        </h2>
+
+
+    </section>
+
+    <!--=========================
+        SẢN PHẨM NỔI BẬT
+    ==========================-->
+
+    <section>
+
+        <h2>
+
+            Sản phẩm nổi bật
+
+        </h2>
+
+        <div id="danhSachSanPham">
+
+            <!-- JavaScript sẽ tạo sản phẩm -->
+
+        </div>
+
+    </section>
+
+    <!--=========================
+        FOOTER
+    ==========================-->
+
+    <footer>
+
+        <h3>
+
+            Website Giới thiệu và
+            Kinh doanh Đặc sản Sóc Trăng
+
+        </h3>
+
+        <p>
+
+            Địa chỉ:
+            Thành phố Sóc Trăng
+
+        </p>
+
+        <p>
+
+            Hotline:
+            0909 999 999
+
+        </p>
+
+        <p>
+
+            Email:
+            dacsansoctrang@gmail.com
+
+        </p>
+
+        <p>
+
+            © 2026
+            All Rights Reserved
+
+        </p>
+
+    </footer>
+
+    <!--=========================
+        JAVASCRIPT
+    ==========================-->
+
+    <script src="js/du-lieu.js"></script>
+
+    <script src="js/script.js"></script>
 
 </body>
 

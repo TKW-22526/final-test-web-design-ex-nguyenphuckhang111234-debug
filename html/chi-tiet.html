@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Chi tiết sản phẩm</title>
@@ -14,122 +15,246 @@
 
 <body>
 
-<header>
+    <!--=========================
+            HEADER
+    ==========================-->
 
-    <div class="logo">
+    <header>
 
-        <img src="../assets/img/images.jpg" alt="Logo">
+        <h1>ĐẶC SẢN SÓC TRĂNG</h1>
 
-        <h2>Đặc sản Sóc Trăng</h2>
+        <nav>
 
-    </div>
+            <a href="../index.html">Trang chủ</a>
 
-    <nav>
+            <a href="gioi-thieu.html">Giới thiệu</a>
 
-        <ul>
+            <a href="san-pham.html">Sản phẩm</a>
 
-            <li><a href="../index.html">Trang chủ</a></li>
-            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
-            <li><a href="san-pham.html">Sản phẩm</a></li>
-            <li><a href="lien-he.html">Liên hệ</a></li>
+            <a href="giohang.html">
 
-        </ul>
+                🛒 Giỏ hàng
 
-    </nav>
+                (<span id="soLuongGio">0</span>)
 
-</header>
+            </a>
 
-<section>
+            <a href="yeu-thich.html">Yêu thích</a>
 
-    <h2>Chi tiết sản phẩm</h2>
+            <a href="hoso.html">Hồ sơ</a>
 
-    <div class="chi-tiet">
+            <a href="dang-nhap.html">Đăng nhập</a>
 
-        <!-- Ảnh sản phẩm -->
-        <div class="hinh-san-pham">
+        </nav>
 
-            <img src="../assets/img/banh-pia-ngon-8-1741477298.jpg" alt="Bánh Pía">
+    </header>
 
-        </div>
 
-        <!-- Thông tin sản phẩm -->
-        <div class="thong-tin">
+    <!--=========================
+            CHI TIẾT SẢN PHẨM
+    ==========================-->
 
-            <h2>Bánh Pía Sóc Trăng</h2>
+    <main>
 
-            <p class="gia">120.000 VNĐ / Hộp</p>
+        <section class="chiTietSanPham">
 
-            <p>
-                Bánh Pía là đặc sản nổi tiếng của Sóc Trăng, được làm từ
-                đậu xanh, sầu riêng và trứng muối. Đây là món quà được
-                nhiều du khách lựa chọn khi đến Sóc Trăng.
-            </p>
+            <div class="hinhSanPham">
 
-            <hr>
+                <img
+                    id="hinhSanPham"
+                    src=""
+                    alt="Sản phẩm">
 
-            <p><strong>Xuất xứ:</strong> Sóc Trăng</p>
+            </div>
 
-            <p><strong>Khối lượng:</strong> 500g</p>
+            <div class="thongTinSanPham">
 
-            <p><strong>Hạn sử dụng:</strong> 45 ngày</p>
+                <h2 id="tenSanPham">
 
-            <p><strong>Bảo quản:</strong> Nơi khô ráo, thoáng mát.</p>
+                    Đang tải...
 
-            <p><strong>Giao hàng:</strong> Toàn quốc.</p>
-<div class="button-group"></div>
-            <br>
+                </h2>
 
-            <button onclick="themGioHang(
-                    'Bánh pía',
-                         120000,
-                    '../assets/img/pia.jpg'
-                    )">
-                       🛒 Thêm vào giỏ hàng
-            </button>
-            <a href="san-pham.html" class="btn-back">
-        ← Quay lại
-    </a>
+                <h3 id="giaSanPham">
 
-</div>
-        </div>
+                    0 đ
 
-    </div>
+                </h3>
 
-</section>
+                <p id="moTaSanPham">
 
-<section class="danh-gia">
+                    ...
 
-<h2>Đánh giá sản phẩm</h2>
+                </p>
 
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
+                <p>
 
-<textarea id="reviewText" placeholder="Nhập đánh giá của bạn..."></textarea>
+                    Danh mục:
 
-<br><br>
+                    <span id="tenDanhMuc">
 
-<button onclick="guiDanhGia()">
+                    </span>
 
-Gửi đánh giá
+                </p>
 
-</button>
+                <table class="bangThongSo">
 
-<div id="reviewList"></div>
+                    <tr>
+                        <td>Xuất xứ</td>
+                        <td id="xuatXuSanPham"></td>
+                    </tr>
 
-</section>
+                    <tr>
+                        <td>Thương hiệu</td>
+                        <td id="thuongHieuSanPham"></td>
+                    </tr>
 
-<footer>
+                    <tr>
+                        <td>Thành phần</td>
+                        <td id="thanhPhanSanPham"></td>
+                    </tr>
 
-<p>
+                    <tr>
+                        <td>Quy cách</td>
+                        <td id="quyCachSanPham"></td>
+                    </tr>
 
-© 2026 Website giới thiệu và kinh doanh đặc sản Sóc Trăng
+                    <tr>
+                        <td>Hạn sử dụng</td>
+                        <td id="hanSuDungSanPham"></td>
+                    </tr>
 
-</p>
+                    <tr>
+                        <td>Bảo quản</td>
+                        <td id="baoQuanSanPham"></td>
+                    </tr>
 
-</footer>
+                    <tr>
+                        <td>Hướng dẫn sử dụng</td>
+                        <td id="huongDanSanPham"></td>
+                    </tr>
 
-<script src="../js/script.js"></script>
+                </table>
+
+                <br>
+
+                <button id="btnThemGio">
+
+                    Thêm vào giỏ hàng
+
+                </button>
+
+                <button id="btnYeuThich">
+
+                    ❤ Yêu thích
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <hr>
+
+
+        <!--=========================
+                ĐÁNH GIÁ
+        ==========================-->
+
+        <section>
+
+            <h2>
+
+                Đánh giá sản phẩm
+
+            </h2>
+
+            <div id="thongKeDanhGia">
+
+            </div>
+
+            <div id="danhSachDanhGia">
+
+            </div>
+
+            <div id="formDanhGiaBox">
+
+                <h3>Viết đánh giá của bạn</h3>
+
+                <form id="formDanhGia">
+
+                    <label for="saoDanhGia">Số sao</label>
+
+                    <select id="saoDanhGia">
+                        <option value="5">⭐⭐⭐⭐⭐ (5 sao)</option>
+                        <option value="4">⭐⭐⭐⭐ (4 sao)</option>
+                        <option value="3">⭐⭐⭐ (3 sao)</option>
+                        <option value="2">⭐⭐ (2 sao)</option>
+                        <option value="1">⭐ (1 sao)</option>
+                    </select>
+
+                    <label for="noiDungDanhGia">Nhận xét</label>
+
+                    <textarea id="noiDungDanhGia" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm..."></textarea>
+
+                    <button type="submit">Gửi đánh giá</button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <hr>
+
+
+        <!--=========================
+                SẢN PHẨM LIÊN QUAN
+        ==========================-->
+
+        <section>
+
+            <h2>
+
+                Sản phẩm liên quan
+
+            </h2>
+
+            <div id="sanPhamLienQuan">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--=========================
+            FOOTER
+    ==========================-->
+
+    <footer>
+
+        <p>
+
+            © 2026 Website Giới thiệu và Kinh doanh Đặc sản Sóc Trăng
+
+        </p>
+
+    </footer>
+
+
+    <!--=========================
+            JAVASCRIPT
+    ==========================-->
+
+    <script src="../js/du-lieu.js"></script>
+
+    <script src="../js/chitiet.js"></script>
+
+    <script src="../js/danhgia.js"></script>
 
 </body>
 

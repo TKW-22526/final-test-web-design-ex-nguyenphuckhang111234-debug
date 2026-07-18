@@ -4,160 +4,212 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sản phẩm - Đặc sản Sóc Trăng</title>
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<header>
-    <div class="search-box">
+    <!--=========================
+        HEADER
+    ==========================-->
 
-        <input type="text"
-              id="search"
-              placeholder="Tìm kiếm sản phẩm..."
-              onkeyup="timKiemSanPham()">
+    <header>
 
-    </div>
+        <div class="logo">
 
-    <div class="logo">
+            <h1>ĐẶC SẢN SÓC TRĂNG</h1>
 
-        <img src="../assets/img/images.jpg" alt="Logo">
+        </div>
 
-        <h2>Đặc sản Sóc Trăng</h2>
+        <nav>
 
-    </div>
+            <ul>
 
-    <nav>
+                <li>
+                    <a href="../index.html">
+                        Trang chủ
+                    </a>
+                </li>
 
-        <ul>
+                <li>
+                    <a href="gioi-thieu.html">
+                        Giới thiệu
+                    </a>
+                </li>
 
-            <li><a href="../index.html">Trang chủ</a></li>
-            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
-            <li><a href="san-pham.html">Sản phẩm</a></li>
-            <li><a href="lien-he.html">Liên hệ</a></li>
+                <li>
+                    <a href="san-pham.html">
+                        Sản phẩm
+                    </a>
+                </li>
 
-        </ul>
+                <li>
+                    <a href="giohang.html">
+                        🛒 Giỏ hàng
+                        (<span id="soLuongGio">0</span>)
+                    </a>
+                </li>
 
-    </nav>
+                <li>
+                    <a href="yeu-thich.html">
+                        ❤️ Yêu thích
+                    </a>
+                </li>
 
-</header>
+                <li>
+                    <a href="hoso.html">
+                        Hồ sơ
+                    </a>
+                </li>
 
-<section>
+                <li>
+                    <a href="dang-nhap.html">
+                        Đăng nhập
+                    </a>
+                </li>
 
-<h2>Danh sách đặc sản Sóc Trăng</h2>
+            </ul>
 
-<div class="title-line">
-    <span></span>
-    <i class="fa-solid fa-spa"></i>
-    <span></span>
-</div>
+        </nav>
 
-<div class="product">
+    </header>
 
-<div class="card">
-<img src="../assets/img/banh-pia-ngon-8-1741477298.jpg">
-<h3>Bánh Pía</h3>
-<p>120.000đ</p>
-<a href="chi-tiet.html">Xem chi tiết</a>
-</div>
+    <!--=========================
+        TIÊU ĐỀ
+    ==========================-->
 
-<div class="card">
-<img src="../assets/img/imageslapxuong.jpg">
-<h3>Lạp Xưởng</h3>
-<p>180.000đ</p>
-<a href="../html/lapxuong.html">Xem chi tiết</a>
-</div>
+    <section>
 
-<div class="card">
-<img src="../assets/img/review-banh-cong-soc-trang-mon-an-duoc-nhieu-nguoi-yeu-thich-05-1664914225.jpg">
-<h3>Bánh Cống</h3>
-<p>50.000đ</p>
-<a href="../html/banh-cong.html">Xem chi tiết</a>
-</div>
+        <h2>
 
-<div class="card">
-<img src="../assets/img/nham-nhi-mieng-kho-trau-thanh-tri-mem-ngot-nhin-la-them-02-1664309319.jpg">
-<h3>Khô Trâu</h3>
-<p>450.000đ</p>
-<a href="../html/kho-trau.html">Xem chi tiết</a>
-</div>
+            TẤT CẢ SẢN PHẨM
 
-<div class="card">
-<img src="../assets/img/imagesmambohoc.jpg">
-<h3>Mắm Bò Hóc</h3>
-<p>130.000đ</p>
-<a href="../html/mam-bo-hoc.html">Xem chi tiết</a>
-</div>
+        </h2>
 
-<div class="card">
-<img src="../assets/img/tomkho.jpg">
-<h3>Tôm Khô</h3>
-<p>350.000đ</p>
-<a href="../html/tom-kho.html">Xem chi tiết</a>
-</div>
+    </section>
 
-<div class="card">
-<img src="../assets/img/chalua.jpg">
-<h3>Chả Lụa</h3>
-<p>160.000đ</p>
-<a href="../html/cha-lua.html">Xem chi tiết</a>
-</div>
+    <!--=========================
+        TÌM KIẾM
+    ==========================-->
 
-<div class="card">
-<img src="../assets/img/gao-ong-cua-st25.jpg">
-<h3>Gạo ST25</h3>
-<p>220.000đ</p>
-<a href="../html/gao-st25.html">Xem chi tiết</a>
-</div>
+    <section class="timKiem">
 
-<div class="card">
-<img src="../assets/img/banh-ong-soc-trang-dac-san-khong-the-bo-lo-khi-di-du-lich-mien-tay-4-1664978349.jpg">
-<h3>Bánh ống</h3>
-<p>20.000đ</p>
-<a href="../html/banh-ong.html">Xem chi tiết</a>
-</div>
+        <input
+            type="text"
+            id="timKiem"
+            placeholder="Nhập tên sản phẩm...">
 
-<div class="card">
-<img src="../assets/img/kho-ca-sac-boi-cm.jpg">
-<h3>Khô Cá Sặc</h3>
-<p>200.000đ</p>
-<a href="../html/kho-ca-sac.html">Xem chi tiết</a>
-</div>
+        <select id="locDanhMuc">
 
-<div class="card">
-<img src="../assets/img/hanh-tim-vinh-chau-nong-san-noi-tieng-cua-tinh-soc-trang-2-1663435267.jpg">
-<h3>Hành tím Vĩnh Châu</h3>
-<p>40.000đ</p>
-<a href="../html/hanhtim-vinhchau.html">Xem chi tiết</a>
-</div>
+            <option value="0">
 
-<div class="card">
-<img src="../assets/img/banh-in-co-co-soc-trang-ngot-ngao-huong-vi-mien-tay-4-1663947184.jpg">
-<h3>Bánh in</h3>
-<p>60.000đ</p>
-<a href="../html/banh-in.html">Xem chi tiết</a>
-</div>
+                Tất cả danh mục
 
-</div>
+            </option>
 
-</section>
+        </select>
 
-<footer>
+        <select id="sapXep">
 
-<p>
-© 2026 Website Đặc sản Sóc Trăng
-</p>
+            <option value="0">
 
-</footer>
+                Sắp xếp
 
-<script src="../js/script.js"></script>
+            </option>
+
+            <option value="1">
+
+                Giá tăng dần
+
+            </option>
+
+            <option value="2">
+
+                Giá giảm dần
+
+            </option>
+
+            <option value="3">
+
+                A → Z
+
+            </option>
+
+            <option value="4">
+
+                Z → A
+
+            </option>
+
+        </select>
+
+        <button onclick="timSanPham()">
+
+            Tìm kiếm
+
+        </button>
+
+    </section>
+
+    <!--=========================
+        DANH SÁCH SẢN PHẨM
+    ==========================-->
+
+    <section>
+
+        <div id="danhSachSanPham">
+
+        </div>
+
+    </section>
+
+    <!--=========================
+        PHÂN TRANG
+    ==========================-->
+
+    <section>
+
+        <div id="phanTrang">
+
+        </div>
+
+    </section>
+
+    <!--=========================
+        FOOTER
+    ==========================-->
+
+    <footer>
+
+        <h3>
+
+            Website Giới thiệu và Kinh doanh Đặc sản Sóc Trăng
+
+        </h3>
+
+        <p>
+
+            © 2026
+
+        </p>
+
+    </footer>
+
+    <!--=========================
+        JAVASCRIPT
+    ==========================-->
+
+    <script src="../js/du-lieu.js"></script>
+
+    <script src="../js/sanpham.js"></script>
+
 
 </body>
+
 </html>
